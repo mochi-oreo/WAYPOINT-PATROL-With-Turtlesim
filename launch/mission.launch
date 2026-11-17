@@ -1,0 +1,12 @@
+<launch>
+    <!-- Simulator Turtlesim -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen" />
+
+    <!-- Node 1: Kontroler Waypoint Patrol (P-Controller) -->
+    <node pkg="turtle_autonomous_mission" type="waypoint_controller_node.py" name="waypoint_controller_node" output="screen">
+        <rosparam param="waypoints">[[2.0, 2.0], [9.0, 2.0], [9.0, 9.0], [2.0, 9.0], [5.54, 5.54]]</rosparam>
+    </node>
+
+    <!-- Node 2: Pemantau Status Misi -->
+    <node pkg="turtle_autonomous_mission" type="mission_monitor_node.py" name="mission_monitor_node" output="screen" />
+</launch>
